@@ -21,6 +21,7 @@ vim.opt.shiftwidth = identacao;
 vim.opt.softtabstop = identacao;
 
 vim.opt.number = true;
+vim.opt.signcolumn = "yes";
 
 --Tema
 vim.cmd([[colorscheme dracula]])

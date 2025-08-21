@@ -29,6 +29,7 @@ return require("lazy").setup ({
 	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
+			numhl = true,
 			signs = {
 				add = { text = "│" },
 				change = { text = "│" },
@@ -37,6 +38,6 @@ return require("lazy").setup ({
 				changedelete = { text = "│" },
 			},
 		},
-	}
+	},
 	"dracula/vim",
 })
