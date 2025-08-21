@@ -39,5 +39,12 @@ return require("lazy").setup ({
 			},
 		},
 	},
+	{
+		"nvim-tree/nvim-tree.lua",
+		dependencies = {
+			"nvim-tree/nvim-web-devicons", -- Necessário para os ícones
+		},
+		config = true;
+	},
 	"dracula/vim",
 })

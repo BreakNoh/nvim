@@ -35,3 +35,8 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		vim.cmd("normal! gg=G");
 	end,
 });
+
+--Atalhos
+---Abrir Explorador de Arquivo
+vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", { desc = "Alterna Explorador de Arquivos" });
+vim.keymap.set("n", "<leader>b", "<cmd>NvimTreeToggle<CR>", { desc = "Alterna Explorador de Arquivos" });
