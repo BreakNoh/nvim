@@ -1,4 +1,3 @@
---Setup Lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim";
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -38,6 +37,7 @@ vim.lsp.config("*", {
 })
 
 vim.lsp.enable("lua-ls");
+vim.lsp.enable("rust-analyzer");
 
 --Config Sintaxe
 vim.opt.filetype = 'on';
@@ -52,53 +52,31 @@ vim.opt.shiftwidth = identacao;
 vim.opt.softtabstop = identacao;
 
 vim.opt.number = true;
-vim.opt.signcolumn = "no";
+vim.opt.signcolumn = "yes";
+vim.opt.updatetime = 700;
 
 vim.diagnostic.config({
 	severity_sort = true,
-	signs = false,
+
 	float = {
 		source = true,
 		focusable = true,
 		border = "rounded",
 	},
-	virtual_text = {
-		source = true,
-		severity = vim.diagnostic.severity.ERROR,
-		message = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = '',
+			[vim.diagnostic.severity.WARN] = '',
+			[vim.diagnostic.severity.INFO] = '',
+			[vim.diagnostic.severity.HINT] = '',
+		}
 	},
+	virtual_lines = false,
+	virtual_text = false
 });
-
 
 --Tema
 vim.cmd([[colorscheme dracula]]);
 
---Identar ao Salvar
-vim.api.nvim_create_augroup("AutoIndentGroup", { clear = true });
-vim.api.nvim_create_autocmd("BufWritePre", {
-	group = "AutoIndentGroup",
-	pattern = "*",
-	callback = function()
-		local pos = vim.fn.getpos(".");
-		vim.cmd("normal! gg=G");
-		vim.fn.setpos(".", pos);
-	end,
-});
-
---Atalhos
----Abrir Explorador de Arquivo
-vim.keymap.set("n", "<C-b>", "<cmd>NvimTreeToggle<CR>", { desc = "Alterna Explorador de Arquivos" });
-vim.keymap.set("n", "<leader>b", "<cmd>NvimTreeToggle<CR>", { desc = "Alterna Explorador de Arquivos" });
-
--- Define o grupo de autocomandos para os atalhos do LSP
-local lsp_group = vim.api.nvim_create_augroup("LspAttach_user", { clear = true })
-
--- Cria o autocomando para adicionar os atalhos após o anexo do LSP
-vim.api.nvim_create_autocmd("LspAttach", {
-	group = lsp_group,
-	callback = function(args)
-		-- Mapeia a tecla 'K' para exibir o tooltip com a documentação do hover
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) --{ buffer = args.buf })
-	end,
-})
-
+require("atalhos");
+require("macros");
