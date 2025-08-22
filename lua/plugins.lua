@@ -31,11 +31,17 @@ return require("lazy").setup ({
 		opts = {
 			numhl = true,
 			signs = {
-				add = { text = "│" },
-				change = { text = "│" },
-				delete = { text = "│" },
-				topdelete = { text = "┐" },
-				changedelete = { text = "│" },
+				-- add = { text = "│" },
+				-- change = { text = "│" },
+				-- delete = { text = "│" },
+				-- topdelete = { text = "┐" },
+				-- changedelete = { text = "│" },
+				add = { text = "" },
+				change = { text = "" },
+				delete = { text = "" },
+				topdelete = { text = "" },
+				changedelete = { text = "" },
+
 			},
 		},
 	},
@@ -45,6 +51,15 @@ return require("lazy").setup ({
 			"nvim-tree/nvim-web-devicons", -- Necessário para os ícones
 		},
 		config = true;
+	},
+	{
+		'hrsh7th/nvim-cmp',
+		dependencies = {
+			'hrsh7th/cmp-nvim-lsp',
+			'hrsh7th/cmp-buffer',
+			'hrsh7th/cmp-path',
+			'hrsh7th/cmp-cmdline',
+		},
 	},
 	"dracula/vim",
 })
