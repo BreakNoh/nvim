@@ -7,7 +7,6 @@ end
 vim.opt.rtp:prepend(lazypath);
 require("plugins");
 
-
 --Setup AutoComplete
 local cmp = require("cmp");
 
@@ -38,6 +37,8 @@ vim.lsp.config("*", {
 
 vim.lsp.enable("lua-ls");
 vim.lsp.enable("rust-analyzer");
+vim.lsp.enable("gdscript");
+vim.lsp.enable("bash-ls");
 
 --Config Sintaxe
 vim.opt.filetype = 'on';
@@ -65,12 +66,13 @@ vim.diagnostic.config({
 	},
 	signs = {
 		text = {
-			[vim.diagnostic.severity.ERROR] = '',
+			[vim.diagnostic.severity.ERROR] = '',
 			[vim.diagnostic.severity.WARN] = '',
 			[vim.diagnostic.severity.INFO] = '',
 			[vim.diagnostic.severity.HINT] = '',
 		}
 	},
+
 	virtual_lines = false,
 	virtual_text = false
 });
