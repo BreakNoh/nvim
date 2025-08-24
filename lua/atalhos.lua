@@ -12,7 +12,11 @@ vim.keymap.set("n", "<C-t>", function ()
 		vim.cmd("b" .. buffer_terminal);
 		vim.cmd("startinsert");
 	end
-end, 
+end,
 {});
 
 vim.keymap.set("t", "<C-t>", "<cmd>b#<CR>", {});
+
+vim.keymap.set("n", "<C-o>",  "<cmd>Telescope find_files<CR>", {});
+
+

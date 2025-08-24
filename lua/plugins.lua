@@ -2,16 +2,19 @@ return require("lazy").setup ({
 	{
 		'nvim-treesitter/nvim-treesitter',
 		lazy = false,
-		branch = 'main',
+		branch = 'master',
 		build = ':TSUpdate',
+		config = true,
+		ops = {
+			highlight = {
+				enable = true;
+			}
+		}
 	},
 	{
 		'windwp/nvim-autopairs',
 		event = "InsertEnter",
 		config = true,
-		opts = {
-			ensure_installed = {"lua", "markdown", "toml", "rust", "css", "html", "javascript"};
-		}
 	},
 	{
 		"lukas-reineke/indent-blankline.nvim",
@@ -36,12 +39,6 @@ return require("lazy").setup ({
 				delete = { text = "│" },
 				topdelete = { text = "┐" },
 				changedelete = { text = "│" },
-				--add = { text = "" },
-				--change = { text = "" },
-				--delete = { text = "" },
-				--topdelete = { text = "" },
-				--changedelete = { text = "" },
-
 			},
 		},
 	},
@@ -60,6 +57,11 @@ return require("lazy").setup ({
 			'hrsh7th/cmp-path',
 			'hrsh7th/cmp-cmdline',
 		},
+	},
+	{
+		'nvim-telescope/telescope.nvim',
+		branch = 'master',
+		dependencies = { 'nvim-lua/plenary.nvim' },
 	},
 	"dracula/vim",
 })

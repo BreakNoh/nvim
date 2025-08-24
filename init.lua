@@ -1,8 +1,8 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim";
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath
-	});
+vim.fn.system({
+"git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath
+});
 end
 vim.opt.rtp:prepend(lazypath);
 require("plugins");
@@ -11,28 +11,28 @@ require("plugins");
 local cmp = require("cmp");
 
 cmp.setup({
-	sources = cmp.config.sources({
-		{ name = "nvim_lsp" },
-		{ name = "buffer" },
-		{ name = "path" },
-	}),
-	window = {
-		completion = cmp.config.window.bordered(),
-		documentation = cmp.config.window.bordered(),
-	},
-	mapping = cmp.mapping.preset.insert({
-		['<C-Down>'] = cmp.mapping.scroll_docs(-4),
-		['<C-Up>'] = cmp.mapping.scroll_docs(4),
-		['<Leader>'] = cmp.mapping.complete(),
-		--['<A-S>'] = cmp.mapping.abort(),
-		['<Tab>'] = cmp.mapping.confirm({ select = true }),
-	}),
+sources = cmp.config.sources({
+{ name = "nvim_lsp" },
+{ name = "buffer" },
+{ name = "path" },
+}),
+window = {
+completion = cmp.config.window.bordered(),
+documentation = cmp.config.window.bordered(),
+},
+mapping = cmp.mapping.preset.insert({
+['<C-Down>'] = cmp.mapping.scroll_docs(-4),
+['<C-Up>'] = cmp.mapping.scroll_docs(4),
+['<Leader>'] = cmp.mapping.complete(),
+--['<A-S>'] = cmp.mapping.abort(),
+['<Tab>'] = cmp.mapping.confirm({ select = true }),
+}),
 });
 
 local capacidades = require("cmp_nvim_lsp").default_capabilities();
 
 vim.lsp.config("*", {
-	capabilities = capacidades;
+capabilities = capacidades;
 })
 
 vim.lsp.enable("lua-ls");
@@ -52,29 +52,32 @@ vim.opt.tabstop = identacao;
 vim.opt.shiftwidth = identacao;
 vim.opt.softtabstop = identacao;
 
+vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()";
+vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()';
+
 vim.opt.number = true;
 vim.opt.signcolumn = "yes";
 vim.opt.updatetime = 700;
 
 vim.diagnostic.config({
-	severity_sort = true,
+severity_sort = true,
 
-	float = {
-		source = true,
-		focusable = true,
-		border = "rounded",
-	},
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = '',
-			[vim.diagnostic.severity.WARN] = '',
-			[vim.diagnostic.severity.INFO] = '',
-			[vim.diagnostic.severity.HINT] = '',
-		}
-	},
+float = {
+source = true,
+focusable = true,
+border = "rounded",
+},
+signs = {
+text = {
+[vim.diagnostic.severity.ERROR] = '',
+[vim.diagnostic.severity.WARN] = '',
+[vim.diagnostic.severity.INFO] = '',
+[vim.diagnostic.severity.HINT] = '',
+}
+},
 
-	virtual_lines = false,
-	virtual_text = false
+virtual_lines = false,
+virtual_text = false
 });
 
 --Tema
@@ -82,3 +85,8 @@ vim.cmd([[colorscheme dracula]]);
 
 require("atalhos");
 require("macros");
+
+vim.api.nvim_create_autocmd('FileType', {
+pattern = { '<filetype>' },
+callback = function() vim.treesitter.start() end,
+})
