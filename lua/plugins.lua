@@ -1,18 +1,18 @@
-return require("lazy").setup ({
+return require("lazy").setup({
 	{
-		'nvim-treesitter/nvim-treesitter',
+		"nvim-treesitter/nvim-treesitter",
 		lazy = false,
-		branch = 'master',
-		build = ':TSUpdate',
+		branch = "master",
+		build = ":TSUpdate",
 		config = true,
 		ops = {
 			highlight = {
-				enable = true;
-			}
-		}
+				enable = true,
+			},
+		},
 	},
 	{
-		'windwp/nvim-autopairs',
+		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = true,
 	},
@@ -24,8 +24,8 @@ return require("lazy").setup ({
 		opts = {},
 	},
 	{
-		'nvim-lualine/lualine.nvim',
-		dependencies = { 'nvim-tree/nvim-web-devicons' },
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = true,
 		opts = {},
 	},
@@ -47,21 +47,36 @@ return require("lazy").setup ({
 		dependencies = {
 			"nvim-tree/nvim-web-devicons", -- Necessário para os ícones
 		},
-		config = true;
+		config = true,
 	},
 	{
-		'hrsh7th/nvim-cmp',
+		"hrsh7th/nvim-cmp",
 		dependencies = {
-			'hrsh7th/cmp-nvim-lsp',
-			'hrsh7th/cmp-buffer',
-			'hrsh7th/cmp-path',
-			'hrsh7th/cmp-cmdline',
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-cmdline",
 		},
 	},
 	{
-		'nvim-telescope/telescope.nvim',
-		branch = 'master',
-		dependencies = { 'nvim-lua/plenary.nvim' },
+		"nvim-telescope/telescope.nvim",
+		branch = "master",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
+	{
+		"stevearc/conform.nvim",
+		config = true,
+		opts = {
+			formatters_by_ft = {
+				markdown = { "prettier" },
+				toml = { "prettier" },
+				css = { "prettier" },
+				javascript = { "prettier" },
+				html = { "prettier" },
+				lua = { "stylua" },
+				rust = { "rustfmt" }
+			},
+		},
 	},
 	"dracula/vim",
 })
