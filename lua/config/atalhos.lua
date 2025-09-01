@@ -15,5 +15,4 @@ vim.keymap.set("n", "<C-t>", function()
 end, {})
 
 vim.keymap.set("t", "<C-t>", "<cmd>b#<CR>", {})
-
 vim.keymap.set("n", "<C-o>", "<cmd>Telescope find_files<CR>", {})
