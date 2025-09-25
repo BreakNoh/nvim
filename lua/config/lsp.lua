@@ -2,6 +2,8 @@ vim.lsp.enable("luals")
 vim.lsp.enable("bashls")
 vim.lsp.enable("rustanalyzer")
 vim.lsp.enable("emmetls")
+vim.lsp.enable("tombi")
+vim.lsp.enable("gdscript")
 
 local cmp = require("cmp")
 
@@ -16,11 +18,11 @@ cmp.setup({
 		documentation = cmp.config.window.bordered(),
 	},
 	mapping = cmp.mapping.preset.insert({
-		["<C-Down>"] = cmp.mapping.scroll_docs(-4),
-		["<C-Up>"] = cmp.mapping.scroll_docs(4),
+		["<C-Down>"] = cmp.mapping.scroll_docs(4),
+		["<C-Up>"] = cmp.mapping.scroll_docs(-4),
 		["<Leader>"] = cmp.mapping.complete(),
 		["<C-Space>"] = cmp.mapping.abort(),
-		["<Tab>"] = cmp.mapping.confirm({ select = true }),
+		["<Tab>"] = cmp.mapping.confirm({ select = false }),
 	}),
 })
 

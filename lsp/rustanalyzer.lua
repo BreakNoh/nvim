@@ -1,5 +1,5 @@
 return {
-	cmd = { "rust-analuyzer" },
+	cmd = { "rust-analyzer" },
 	filetypes = { "rust" },
 	root_markers = { "Cargo.toml", ".git" },
 }

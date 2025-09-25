@@ -4,12 +4,15 @@ return {
 	opts = {
 		formatters_by_ft = {
 			markdown = { "prettier" },
-			toml = { "prettier" },
+			toml = { "tombi" },
 			css = { "prettier" },
 			javascript = { "prettier" },
 			html = { "prettier" },
 			lua = { "stylua" },
 			rust = { "rustfmt" },
+			json = { "prettier" },
+			jsonc = { "prettier" },
+			gdscript = { "gdformat" },
 		},
 	},
 }

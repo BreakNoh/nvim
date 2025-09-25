@@ -1,10 +1,11 @@
 # Atalhos
 
-| Comando    | Função                           |
-| ---------- | -------------------------------- |
-| `ctrl + b` | Alterna o explorador de arquivos |
-| `ctrl + o` | Abre o Telescope                 |
-| `ctrl + t` | Aterna visão de terminal         |
+| Comando    | Modo   | Função                           |
+| ---------- | ------ | -------------------------------- |
+| `ctrl + b` | Normal | Alterna o explorador de arquivos |
+| `ctrl + o` | Normal | Abre o Telescope                 |
+| `F2`       | Normal | Renomear                         |
+| `gD`       | Normal | Ir pra definição                 |
 
 # Capacidades
 
