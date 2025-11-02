@@ -17,6 +17,8 @@ vim.opt.softtabstop = identacao
 -- vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
 -- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 
+-- vim.g.mapleader = "\\"
+
 -- Coluna Números
 vim.opt.number = true
 vim.opt.signcolumn = "yes"

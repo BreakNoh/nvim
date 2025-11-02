@@ -13,6 +13,7 @@ return {
 			json = { "prettier" },
 			jsonc = { "prettier" },
 			gdscript = { "gdformat" },
+			python = { "ruff_format" },
 		},
 	},
 }

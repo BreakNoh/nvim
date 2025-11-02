@@ -1,9 +1,9 @@
 local function formatar()
-	require("conform").format({ async = true })
+	require("conform").format({ async = false })
 end
 
 -- Formatar ao salvar
-vim.api.nvim_create_autocmd("BufWritePre", {
+vim.api.nvim_create_autocmd("BufWrite", {
 	pattern = "*",
 	callback = function(_)
 		formatar()
@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 vim.api.nvim_create_autocmd("InsertLeave", {
 	pattern = "*",
 	callback = function()
-		formatar()
+		-- formatar()
 
 		-- if vim.bo.modifiable and vim.bo.modified then
 		-- 	vim.cmd("silent! write")

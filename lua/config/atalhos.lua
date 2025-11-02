@@ -1,8 +1,11 @@
 -- Renomear
-vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, {})
+vim.keymap.set("n", "<F2>", ":IncRename ")
 
--- Ir pra definicao
-vim.keymap.set("n", "gD", vim.lsp.buf.definition, {})
+-- Ações de código
+vim.keymap.set("n", "<Leader>ca", vim.lsp.buf.code_action, {})
+
+-- Ir pra definição
+vim.keymap.set("n", "<Leader>gd", vim.lsp.buf.definition, {})
 
 -- Alternar mostrar explorador de arquivos
 local nvim_tree = require("nvim-tree.api")
