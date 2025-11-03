@@ -31,6 +31,15 @@ cmp.setup({
 		["<C-A-k>"] = cmp.mapping.abort(),
 		["<Tab>"] = cmp.mapping.confirm({ select = false }),
 	}),
+	formatting = {
+		format = function(entry, vim_item)
+			-- Remove o campo menu para nvim_lsp (rust-analyzer)
+			if entry.source.name == "nvim_lsp" then
+				vim_item.menu = nil
+			end
+			return vim_item
+		end,
+	},
 })
 
 local capacidades = require("cmp_nvim_lsp").default_capabilities()
