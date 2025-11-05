@@ -1,5 +1,5 @@
 return {
 	cmd = { "emmet-language-server", "--stdio" },
-	filetypes = { "html", "css", "javascript", "typescript" },
+	filetypes = { "html", "css", "javascriptreact", "typescriptreact" },
 	root_markers = { "tsconfig.json", "package.json", ".git" },
 }

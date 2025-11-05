@@ -2,18 +2,29 @@ return {
 	"stevearc/conform.nvim",
 	config = true,
 	opts = {
+		formatters = {
+			prettier = {
+				prepend_args = { "--use-tabs", "--tab-width", "4" },
+			},
+		},
 		formatters_by_ft = {
 			markdown = { "prettier" },
-			toml = { "tombi" },
-			css = { "prettier" },
+
 			javascript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescript = { "prettier" },
+			typescriptreact = { "prettier" },
 			html = { "prettier" },
-			lua = { "stylua" },
-			rust = { "rustfmt" },
+			css = { "prettier" },
 			json = { "prettier" },
 			jsonc = { "prettier" },
-			gdscript = { "gdformat" },
+
+			lua = { "stylua" },
+
 			python = { "ruff_format" },
+
+			rust = { "rustfmt" },
+			toml = { "tombi" },
 		},
 	},
 }

@@ -12,6 +12,10 @@ vim.opt.tabstop = identacao
 vim.opt.shiftwidth = identacao
 vim.opt.softtabstop = identacao
 
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevel = 4
+
 -- vim.opt.foldmethod = "expr"
 -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 -- vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
