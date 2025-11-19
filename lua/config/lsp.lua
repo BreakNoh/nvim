@@ -1,4 +1,4 @@
-local lsps = { "lua-ls", "pyright", "bash-ls", "rustanalyzer", "tombi", "emmet-ls", "ts-ls" }
+local lsps = { "lua-ls", "pyright", "bash-ls", "rustanalyzer", "tombi", "emmet-ls", "ts-ls", "css-ls" }
 
 for _, lsp in ipairs(lsps) do
 	vim.lsp.enable(lsp)

@@ -6,6 +6,7 @@ vim.opt.filetype = "on"
 vim.opt.syntax = "on"
 vim.opt.termguicolors = true
 vim.opt.updatetime = 1000
+vim.opt.ttyfast = true
 
 -- Tamanho do Tab
 vim.opt.tabstop = identacao
@@ -15,13 +16,6 @@ vim.opt.softtabstop = identacao
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevel = 4
-
--- vim.opt.foldmethod = "expr"
--- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
--- vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
--- vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-
--- vim.g.mapleader = "\\"
 
 -- Coluna Números
 vim.opt.number = true
