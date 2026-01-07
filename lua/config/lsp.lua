@@ -1,8 +1,12 @@
+-- iniciar lsps
+
 local lsps = { "lua-ls", "pyright", "bash-ls", "rustanalyzer", "tombi", "emmet-ls", "ts-ls", "css-ls" }
 
 for _, lsp in ipairs(lsps) do
 	vim.lsp.enable(lsp)
 end
+
+-- auto complete
 
 local cmp = require("cmp")
 local function janela_cmp()
@@ -33,7 +37,7 @@ cmp.setup({
 	}),
 	formatting = {
 		format = function(entry, vim_item)
-			-- Remove o campo menu para nvim_lsp (rust-analyzer)
+			-- remove o campo menu para nvim_lsp (rust-analyzer)
 			if entry.source.name == "nvim_lsp" then
 				vim_item.menu = nil
 			end
@@ -46,4 +50,28 @@ local capacidades = require("cmp_nvim_lsp").default_capabilities()
 
 vim.lsp.config("*", {
 	capabilities = capacidades,
+})
+
+-- icones diagnostico
+
+vim.diagnostic.config({
+	severity_sort = true,
+
+	float = {
+		source = true,
+		focusable = true,
+		border = "rounded",
+	},
+
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "",
+		},
+	},
+
+	virtual_lines = false,
+	virtual_text = false,
 })

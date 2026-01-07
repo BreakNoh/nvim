@@ -1,4 +1,7 @@
 -- lazy.nvim
+if vim.env.MOBILE then
+	return {}
+end
 return {
 	"folke/noice.nvim",
 	event = "VeryLazy",

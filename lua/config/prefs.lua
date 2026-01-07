@@ -1,5 +1,4 @@
-local no_celular = os.getenv("TERMUX_VERSION")
-local identacao = no_celular and 2 or 4
+local identacao = vim.env.MOBILE and 2 or 4
 
 -- Setup
 vim.opt.filetype = "on"
@@ -21,26 +20,6 @@ vim.opt.foldlevel = 4
 vim.opt.number = true
 vim.opt.signcolumn = "yes"
 
-vim.diagnostic.config({
-	severity_sort = true,
-
-	float = {
-		source = true,
-		focusable = true,
-		border = "rounded",
-	},
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = "",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.INFO] = "",
-			[vim.diagnostic.severity.HINT] = "",
-		},
-	},
-
-	virtual_lines = false,
-	virtual_text = false,
-})
 
 -- Tema
 vim.cmd([[colorscheme dracula]])
