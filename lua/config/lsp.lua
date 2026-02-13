@@ -1,22 +1,8 @@
-local lsps = {
-	"lua_ls",
-	"pyright",
-	"bash_ls",
-	"rust_analyzer",
-	"tombi",
-	"emmet_ls",
-	"ts_ls",
-	"css_ls",
-	"tinymist",
-	"svelteserver",
-	"denols",
-}
--- local capacidades = require("cmp_nvim_lsp").default_capabilities()
+local pasta_lsps = "~/.config/nvim/lsp"
 
-for _, lsp in ipairs(lsps) do
-	vim.lsp.enable(lsp)
-
-	vim.lsp.config(lsp, {
-		-- capabilities = capacidades,
-	})
+for lsp, tipo in vim.fs.dir(pasta_lsps) do
+	if tipo == "file" then
+		local nome_base = vim.fn.split(lsp, "\\.")[1]
+		vim.lsp.enable(nome_base)
+	end
 end
