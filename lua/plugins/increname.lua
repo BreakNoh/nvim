@@ -1,6 +1,8 @@
-return {
-	{
-		"smjonas/inc-rename.nvim",
-		opts = {},
-	},
-}
+return {}
+
+-- return {
+-- 	{
+-- 		"smjonas/inc-rename.nvim",
+-- 		opts = {},
+-- 	},
+-- }

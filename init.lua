@@ -1,5 +1,7 @@
 require("config.lazy")
+
 require("config.prefs")
-require("config.lsp")
 require("config.atalhos")
 require("config.autocmds")
+
+require("config.lsp")

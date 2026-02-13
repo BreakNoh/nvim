@@ -1,5 +1,5 @@
 return {
 	cmd = { "bash-language-server", "start" },
-	filetypes = { "sh" },
+	filetypes = { "sh", "zsh" },
 	--	root_markers = { ".git" },
 }

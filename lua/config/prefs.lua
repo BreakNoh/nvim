@@ -15,7 +15,7 @@ vim.opt.softtabstop = identacao
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldlevel = 4
+vim.opt.foldlevel = 99
 
 -- Coluna Números
 vim.opt.number = true

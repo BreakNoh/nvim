@@ -2,25 +2,39 @@ local function formatar()
 	require("conform").format({ async = false })
 end
 
--- Formatar ao salvar
-vim.api.nvim_create_autocmd("BufWrite", {
-	pattern = "*",
+--vim.api.nvim_create_autocmd("FileType", {
+--	pattern = { "" },
+--	callback = function()
+--		vim.treesitter.start()
+--	end,
+--})
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "*.typ",
 	callback = function(_)
-		formatar()
+		vim.cmd("silent !typst compile %")
 	end,
 })
+
+-- Formatar ao salvar
+-- vim.api.nvim_create_autocmd("BufWrite", {
+-- 	pattern = "*",
+-- 	callback = function(_)
+-- 		formatar()
+-- 	end,
+-- })
 
 -- Formatar ao sair do modo insert
-vim.api.nvim_create_autocmd("InsertLeave", {
-	pattern = "*",
-	callback = function()
-		-- formatar()
-
-		-- if vim.bo.modifiable and vim.bo.modified then
-		-- 	vim.cmd("silent! write")
-		-- end
-	end,
-})
+-- vim.api.nvim_create_autocmd("InsertLeave", {
+-- 	pattern = "*",
+-- 	callback = function()
+-- 		-- formatar()
+--
+-- 		-- if vim.bo.modifiable and vim.bo.modified then
+-- 		-- 	vim.cmd("silent! write")
+-- 		-- end
+-- 	end,
+-- })
 
 -- Mostrar mensagem ao deixar cursor encima
 vim.api.nvim_create_autocmd("CursorHold", {

@@ -1,32 +1,37 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
+
 	lazy = false,
 	branch = "master",
 	build = ":TSUpdate",
-	config = true,
-	ops = {
-		-- Linguagens que você quer ativar
-		ensure_installed = {
-			"lua",
-			"bash",
-			"rust",
-			"toml",
-			"css",
-			"html",
-			"javascript",
-			"typescript",
-			"tsx",
-			"python",
-			"markdown",
-		},
 
-		-- Ativa o highlight
-		highlight = {
-			enable = true,
-			additional_vim_regex_highlighting = false,
-		},
+	init = function()
+		require("nvim-treesitter.configs").setup({
+			ensure_installed = {
+				"lua",
+				"bash",
+				"python",
 
-		-- (opcional) melhora indentação baseada na árvore
-		indent = { enable = true },
-	},
+				"rust",
+				"toml",
+
+				"css",
+				"html",
+
+				"javascript",
+				"typescript",
+				"tsx",
+				"svelte",
+
+				"markdown",
+			},
+
+			highlight = {
+				enable = true,
+				additional_vim_regex_highlighting = false,
+			},
+
+			indent = { enable = true },
+		})
+	end,
 }
