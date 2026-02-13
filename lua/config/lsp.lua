@@ -8,7 +8,7 @@ local lsps = {
 	"ts_ls",
 	"css_ls",
 	"tinymist",
-	"sv_lsp",
+	"svelteserver",
 	"denols",
 }
 -- local capacidades = require("cmp_nvim_lsp").default_capabilities()
