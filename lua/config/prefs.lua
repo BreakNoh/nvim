@@ -7,6 +7,8 @@ vim.opt.syntax = "on"
 vim.opt.termguicolors = true
 vim.opt.updatetime = 1000
 vim.opt.ttyfast = true
+vim.g.mapleader = " " -- muda o <leader> pra ser o espaco
+vim.opt.mouse = ""
 
 -- Tamanho do Tab
 vim.opt.tabstop = identacao
@@ -19,6 +21,7 @@ vim.opt.foldlevel = 99
 
 -- Coluna Números
 vim.opt.number = true
+vim.opt.relativenumber = true
 vim.opt.signcolumn = "yes"
 
 vim.diagnostic.config({
@@ -41,6 +44,3 @@ vim.diagnostic.config({
 	virtual_lines = false,
 	virtual_text = false,
 })
-
--- Tema
-vim.cmd([[colorscheme dracula]])
