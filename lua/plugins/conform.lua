@@ -2,10 +2,13 @@ return {
 	"stevearc/conform.nvim",
 	config = true,
 	opts = {
-
+		log_level = vim.log.levels.DEBUG,
 		formatters = {
 			prettier = {
 				prepend_args = { "--tab-width", "4" },
+			},
+			prettierd = {
+				-- prepend_args = { "--tab-width", "4" },
 			},
 		},
 
@@ -17,27 +20,27 @@ return {
 		end,
 
 		formatters_by_ft = {
-			javascript = { "prettier" },
-			typescript = { "prettier" },
+			javascript = { "prettierd", "prettier", stop_after_first = true },
+			typescript = { "prettierd", "prettier", stop_after_first = true },
 
-			javascriptreact = { "prettier" },
-			typescriptreact = { "prettier" },
+			javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+			typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 
-			svelte = { "prettier" },
+			svelte = { "prettierd", "prettier", stop_after_first = true },
 
-			html = { "prettier" },
-			css = { "prettier" },
+			html = { "prettierd", "prettier", stop_after_first = true },
+			css = { "prettierd", "prettier", stop_after_first = true },
 
-			markdown = { "prettier" },
-			json = { "prettier" },
-			jsonc = { "prettier" },
+			markdown = { "prettierd", "prettier", stop_after_first = true },
+			json = { "prettierd", "prettier", stop_after_first = true },
+			jsonc = { "prettierd", "prettier", stop_after_first = true },
 
 			lua = { "stylua" },
 			python = { "ruff_format" },
 
 			typst = { "prettypst" },
 
-			rust = { "rustfmt" },
+			rust = { "rustfmt", lsp_format = "fallback" },
 			toml = { "tombi" },
 		},
 	},
