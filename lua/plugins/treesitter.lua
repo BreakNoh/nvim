@@ -5,33 +5,32 @@ return {
 	branch = "master",
 	build = ":TSUpdate",
 
-	init = function()
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = {
-				"lua",
-				"bash",
-				"python",
+	opts = {
+		ensure_installed = {
+			"lua",
+			"bash",
+			"python",
 
-				"rust",
-				"toml",
+			"rust",
+			"toml",
 
-				"css",
-				"html",
+			"css",
+			"html",
 
-				"javascript",
-				"typescript",
-				"tsx",
-				"svelte",
+			"javascript",
+			"typescript",
+			"tsx",
+			"svelte",
 
-				"markdown",
-			},
+			"markdown",
+		},
 
-			highlight = {
-				enable = true,
-				additional_vim_regex_highlighting = false,
-			},
+		highlight = {
+			enable = true,
+			additional_vim_regex_highlighting = false,
+		},
 
-			indent = { enable = true },
-		})
-	end,
+		indent = { enable = true },
+	},
+	config = true,
 }
