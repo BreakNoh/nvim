@@ -7,9 +7,23 @@ vim.opt.syntax = "on"
 vim.opt.termguicolors = true
 vim.opt.updatetime = 1000
 vim.opt.ttyfast = true
-vim.g.mapleader = " " -- muda o <leader> pra ser o espaco
 vim.opt.mouse = ""
 
+vim.g.mapleader = " " -- muda o <leader> pra ser o espaco
+vim.g.linguagens = {
+	"bash",
+	"zsh",
+	"powershell",
+	"rust",
+	"toml",
+	"javascript",
+	"typescript",
+	"html",
+	"css",
+	"svelte",
+	"json",
+	"markdown",
+}
 -- Tamanho do Tab
 vim.opt.tabstop = identacao
 vim.opt.shiftwidth = identacao
