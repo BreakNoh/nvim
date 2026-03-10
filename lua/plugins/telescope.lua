@@ -11,7 +11,7 @@ return {
 			extensions = {
 				file_browser = {
 					hijack_netrw = true,
-					-- cwd_to_path = true,
+					hidden = { file_browser = true, folder_browser = true },
 					respect_gitignore = false,
 					no_ignore = true,
 
