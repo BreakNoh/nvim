@@ -1,14 +1,4 @@
-local function formatar()
-	require("conform").format({ async = false })
-end
-
---vim.api.nvim_create_autocmd("FileType", {
---	pattern = { "" },
---	callback = function()
---		vim.treesitter.start()
---	end,
---})
-
+-- Renderizar arquivo typst ao salvar
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "*.typ",
 	callback = function(_)
@@ -16,26 +6,21 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	end,
 })
 
--- Formatar ao salvar
--- vim.api.nvim_create_autocmd("BufWrite", {
--- 	pattern = "*",
--- 	callback = function(_)
--- 		formatar()
--- 	end,
--- })
-
--- Formatar ao sair do modo insert
--- vim.api.nvim_create_autocmd("InsertLeave", {
--- 	pattern = "*",
+-- vim.api.nvim_create_autocmd("BufEnter", {
 -- 	callback = function()
--- 		-- formatar()
+-- 		local bufname = vim.api.nvim_buf_get_name(0)
+-- 		local isdir = vim.fn.isdirectory(bufname)
+-- 		local filetype = vim.bo[0].filetype
 --
--- 		-- if vim.bo.modifiable and vim.bo.modified then
--- 		-- 	vim.cmd("silent! write")
--- 		-- end
+-- 		print(string.format("BufEnter: %s, isdir=%s, filetype=%s", bufname, isdir, filetype))
+--
+-- 		if isdir == 1 then
+-- 			print("Directory detected - should launch file browser")
+-- 		end
 -- 	end,
 -- })
 
+-- Ativar Treessiter para os arquivos
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = vim.g.linguagens,
 	callback = function()

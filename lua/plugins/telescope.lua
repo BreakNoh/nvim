@@ -2,6 +2,8 @@ return {
 	"nvim-telescope/telescope.nvim",
 	branch = "master",
 	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope-file-browser.nvim" },
+	lazy = false,
+
 	config = function()
 		local telescope = require("telescope")
 
@@ -9,7 +11,11 @@ return {
 			extensions = {
 				file_browser = {
 					hijack_netrw = true,
-					cwd_to_path = true,
+					-- cwd_to_path = true,
+					respect_gitignore = false,
+					no_ignore = true,
+
+					setup_delay = 100,
 				},
 			},
 			defaults = {
