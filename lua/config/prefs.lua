@@ -23,6 +23,7 @@ vim.g.linguagens = {
 	"svelte",
 	"json",
 	"markdown",
+	"python",
 }
 -- Tamanho do Tab
 vim.opt.tabstop = identacao

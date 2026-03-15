@@ -6,31 +6,6 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	end,
 })
 
--- vim.api.nvim_create_autocmd("BufEnter", {
--- 	callback = function()
--- 		local bufname = vim.api.nvim_buf_get_name(0)
--- 		local isdir = vim.fn.isdirectory(bufname)
--- 		local filetype = vim.bo[0].filetype
---
--- 		print(string.format("BufEnter: %s, isdir=%s, filetype=%s", bufname, isdir, filetype))
---
--- 		if isdir == 1 then
--- 			print("Directory detected - should launch file browser")
--- 		end
--- 	end,
--- })
-
--- Ativar Treessiter para os arquivos
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = vim.g.linguagens,
-	callback = function()
-		vim.treesitter.start()
-		vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-		vim.wo[0][0].foldexpr = "v:lua.vim.treesitter.foldexpr()"
-		vim.wo[0][0].foldmethod = "expr"
-	end,
-})
-
 -- Mostrar mensagem ao deixar cursor encima
 vim.api.nvim_create_autocmd("CursorHold", {
 	pattern = "*",
