@@ -15,7 +15,10 @@ return {
 					respect_gitignore = false,
 					no_ignore = true,
 
-					setup_delay = 100,
+					path = "%:p:h",
+					cwd = "%:p:h",
+
+					-- setup_delay = 100,
 				},
 			},
 			defaults = {
